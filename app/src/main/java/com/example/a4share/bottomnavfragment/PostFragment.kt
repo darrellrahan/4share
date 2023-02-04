@@ -47,51 +47,11 @@ class PostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val category: Spinner = view.findViewById(R.id.category)
-        val categories = arrayOf("Kategori...", "PPLG", "TJKT", "DKV", "TOI", "TlITL", "AV")
+        val categories = arrayOf("PPLG", "TJKT", "DKV", "TOI", "TlITL", "AV")
 
-        val categoryAdapter = object : ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, categories) {
-            override fun isEnabled(position: Int): Boolean {
-                return position != 0
-            }
+        val categoryAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, categories)
 
-            override fun getDropDownView(
-                position: Int,
-                convertView: View?,
-                parent: ViewGroup
-            ): View {
-                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
-                //set the color of first item in the drop down list to gray
-                if(position == 0) {
-                    view.setTextColor(Color.GRAY)
-                } else {
-                    //here it is possible to define color for other items by
-                    //view.setTextColor(Color.RED)
-                }
-                return view
-            }
-        }
-
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         category.adapter = categoryAdapter
-
-        category.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val value = parent!!.getItemAtPosition(position).toString()
-                if(value == categories[0]){
-                    (view as TextView).setTextColor(Color.GRAY)
-                }
-            }
-
-        }
-
     }
 
     companion object {
