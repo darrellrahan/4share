@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -18,7 +20,6 @@ import com.example.a4share.R
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-private lateinit var viewPager: ViewPager2
 
 /**
  * A simple [Fragment] subclass.
@@ -41,7 +42,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewPager = view.findViewById<ViewPager2>(R.id.view_pager)
+        val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager)
+        val filter: Spinner = view.findViewById<Spinner>(R.id.filter_spinner)
 
         viewPager.apply {
             clipChildren = false
@@ -66,6 +68,11 @@ class HomeFragment : Fragment() {
             arrayListOf("Jadi gini kak, perbedaan antara setTimeOut dan setInterval di JavaScript adalah ... Gacukup lanjut part 2", "Cyber Security Mesh adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  ...", "Ga relate Kristen 🙏"),
             arrayListOf(6, 9, 420)
         )
+
+        val filters = arrayOf("Pertanyaan Terbaru", "Pertanyaan Terpopuler")
+        val filterAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, filters)
+
+        filter.adapter = filterAdapter
     }
 
     override fun onCreateView(

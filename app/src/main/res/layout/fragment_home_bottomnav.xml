@@ -6,11 +6,19 @@
     android:layout_height="wrap_content"
     tools:context=".bottomnavfragment.HomeFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFEF7">
+            android:background="#FFFEF7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -21,25 +29,25 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/avatar_black"
                     android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/avatar_black" />
 
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/logo"
                     android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:src="@drawable/logo" />
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/chat_header"
                     android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/chat_header" />
 
             </LinearLayout>
 
@@ -97,6 +105,15 @@
                 android:backgroundTint="#FFFEF7"
                 android:paddingStart="16dp"
                 android:src="@drawable/filter" />
+
+            <Spinner
+                android:id="@+id/filter_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="-4dp"
+                android:layout_toEndOf="@+id/filter" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl1"
@@ -522,5 +539,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
