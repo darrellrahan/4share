@@ -2,6 +2,7 @@ package com.example.a4share.bottomnavfragment
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.a4share.CarouselAdapter
 import com.example.a4share.R
+import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +47,10 @@ class HomeFragment : Fragment() {
         val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager)
         val filter: Spinner = view.findViewById<Spinner>(R.id.filter_spinner)
 
+        viewPager.post {
+            viewPager.setCurrentItem(1, true)
+        }
+
         viewPager.apply {
             clipChildren = false
             clipToPadding = false
@@ -62,17 +68,20 @@ class HomeFragment : Fragment() {
         viewPager.setPageTransformer(compositePageTransformer)
 
         viewPager.adapter = CarouselAdapter(
-            arrayListOf("Perbedaan setInterval dan setTimeOut di Javascript?", "Apa itu Cyber Security Mesh?", "Tutorial nyebrang jembatan shiratal mustaqim?"),
-            arrayListOf("Darrell", "Alifah", "Azril"),
-            arrayListOf("Dijawab, 3 Feb 2023", "Dijawab, 23 Jan 2023", "Dijawab, 1 Feb 2023"),
-            arrayListOf("Jadi gini kak, perbedaan antara setTimeOut dan setInterval di JavaScript adalah ... Gacukup lanjut part 2", "Cyber Security Mesh adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  ...", "Ga relate Kristen 🙏"),
-            arrayListOf(6, 9, 420)
+            arrayListOf("Apa itu Cyber Security Mesh?", "Perbedaan setInterval dan setTimeOut di Javascript?", "Tutorial nyebrang jembatan shiratal mustaqim?"),
+            arrayListOf("Alifah", "Darrell", "Azril"),
+            arrayListOf("Dijawab, 23 Jan 2023", "Dijawab, 5 Feb 2023", "Dijawab, 1 Feb 2023"),
+            arrayListOf("Cyber Security Mesh adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  ...", "Jadi gini kak, perbedaan antara setTimeOut dan setInterval di JavaScript adalah ... Gacukup lanjut part 2", "Ga relate Kristen 🙏"),
+            arrayListOf(9, 6, 420)
         )
 
-        val filters = arrayOf("Pertanyaan Terbaru", "Pertanyaan Terpopuler")
+        val filters = arrayOf("Pertanyaan Terbaru", "Pertanyaan Populer")
         val filterAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, filters)
 
         filter.adapter = filterAdapter
+
+        val indicator = view.findViewById<CircleIndicator3>(R.id.indicator)
+        indicator.setViewPager(viewPager)
     }
 
     override fun onCreateView(

@@ -20,43 +20,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/avatar_black" />
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/logo" />
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/chat_header" />
-
-            </LinearLayout>
+            <include
+                android:id="@+id/header"
+                layout="@layout/header" />
 
             <LinearLayout
                 android:id="@+id/linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
-                android:background="@drawable/top_bottom_border"
+                android:background="@drawable/bottom_border"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="vertical">
@@ -66,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/allround_radius_border"
-                    android:drawableStart="@drawable/search_icon"
+                    android:drawableStart="@drawable/search_hint"
                     android:drawablePadding="12dp"
                     android:hint="Cari"
                     android:inputType="text"
@@ -87,6 +60,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
+
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/view_pager"
                     android:layout_width="250dp"
@@ -94,6 +68,13 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="32dp" />
 
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="#FFFEF7"
+                    app:ci_drawable="@drawable/indicator_active"
+                    app:ci_drawable_unselected="@drawable/indicator_unactive"/>
             </LinearLayout>
 
             <ImageView
@@ -111,8 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/linear_layout"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="-4dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/filter" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -131,7 +112,7 @@
                     android:id="@+id/imageView4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="4dp"
                     android:src="@drawable/avatar_black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -152,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="(TAV - Transistor)"
+                    android:text="(AV)"
                     android:textColor="@android:color/black"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
                     app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -293,7 +274,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="(TJKT - Cyber)"
+                    android:text="(TJKT)"
                     android:textColor="@android:color/black"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
                     app:layout_constraintTop_toBottomOf="@+id/username2" />
@@ -434,7 +415,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="(PPLG - C#)"
+                    android:text="(PPLG)"
                     android:textColor="@android:color/black"
                     app:layout_constraintStart_toEndOf="@+id/imageView11"
                     app:layout_constraintTop_toBottomOf="@+id/username3" />

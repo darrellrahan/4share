@@ -5,59 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFEF7"
-    tools:context=".bottomnavfragment.PostFragment"
-    android:padding="16dp">
+    tools:context=".bottomnavfragment.PostFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/header"
+            layout="@layout/header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/avatar_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="20dp"
             android:text="Darrell"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/avatar"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/header" />
 
         <TextView
             android:id="@+id/spinner_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:text="Kategori: "
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@+id/avatar"
-            app:layout_constraintTop_toBottomOf="@+id/username"/>
+            app:layout_constraintTop_toBottomOf="@+id/username" />
 
         <Spinner
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
             android:layout_marginStart="-14dp"
+            android:layout_marginTop="28.5dp"
             app:layout_constraintStart_toEndOf="@+id/spinner_label"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/header" />
 
         <EditText
             android:id="@+id/subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/allround_radius_border"
             android:hint="Subjek"
             android:inputType="text"
@@ -74,7 +84,9 @@
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/allround_radius_border"
             android:gravity="top"
             android:hint="Apa yang ingin anda unggah?"
@@ -82,6 +94,7 @@
             android:paddingStart="16dp"
             android:paddingTop="10dp"
             android:textSize="16sp"
+            android:paddingEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subject" />
 
@@ -89,7 +102,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/allround_radius_border"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rbl_border"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +156,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#FFA800"
             android:letterSpacing="0.025"
-            android:text="Submit"
+            android:text="Post"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
