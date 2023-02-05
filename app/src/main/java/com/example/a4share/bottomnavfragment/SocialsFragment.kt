@@ -1,11 +1,19 @@
 package com.example.a4share.bottomnavfragment
 
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
+import com.example.a4share.CarouselHomeAdapter
+import com.example.a4share.CarouselSocialsAdapter
 import com.example.a4share.R
+import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +44,39 @@ class AccountFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_socials_bottomnav, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager_socials)
+
+        viewPager.apply {
+            clipChildren = false
+            clipToPadding = false
+            offscreenPageLimit = 3
+            (getChildAt(0) as RecyclerView).overScrollMode =
+                RecyclerView.OVER_SCROLL_NEVER
+        }
+
+        val compositePageTransformer = CompositePageTransformer()
+        compositePageTransformer.addTransformer(MarginPageTransformer((40 * Resources.getSystem().displayMetrics.density).toInt()))
+        compositePageTransformer.addTransformer { page, position ->
+            val r = 1 - kotlin.math.abs(position)
+            page.scaleY = (0.80f + r * 0.20f)
+        }
+        viewPager.setPageTransformer(compositePageTransformer)
+
+        viewPager.adapter = CarouselSocialsAdapter(
+            arrayListOf("Rizky Billiard", "Lesley", "Baby El"),
+            arrayListOf("562 Pengikut", "69 Pengikut", "420 Pengikut"),
+            arrayListOf("TJKT", "TITL", "PPLG"),
+            arrayListOf("111 Jawaban", "123 Jawaban", "124 Jawaban"),
+            arrayListOf("25 Pertanyaan", "24 Pertanyaan", "23 Pertanyaan")
+        )
+
+        val indicator = view.findViewById<CircleIndicator3>(R.id.indicator_socials)
+        indicator.setViewPager(viewPager)
     }
 
     companion object {

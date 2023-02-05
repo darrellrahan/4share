@@ -2,19 +2,17 @@ package com.example.a4share.bottomnavfragment
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.a4share.CarouselAdapter
+import com.example.a4share.CarouselHomeAdapter
 import com.example.a4share.R
 import me.relex.circleindicator.CircleIndicator3
 
@@ -67,7 +65,7 @@ class HomeFragment : Fragment() {
         }
         viewPager.setPageTransformer(compositePageTransformer)
 
-        viewPager.adapter = CarouselAdapter(
+        viewPager.adapter = CarouselHomeAdapter(
             arrayListOf("Apa itu Cyber Security Mesh?", "Perbedaan setInterval dan setTimeOut di Javascript?", "Tutorial nyebrang jembatan shiratal mustaqim?"),
             arrayListOf("Alifah", "Darrell", "Azril"),
             arrayListOf("Dijawab, 23 Jan 2023", "Dijawab, 5 Feb 2023", "Dijawab, 1 Feb 2023"),

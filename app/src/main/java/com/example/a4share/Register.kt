@@ -22,7 +22,7 @@ class Register : AppCompatActivity() {
         }
 
         toHomeBtn.setOnClickListener {
-            startActivity(Intent(this, Home::class.java))
+            startActivity(Intent(this, Dashboard::class.java))
             finish()
         }
     }
