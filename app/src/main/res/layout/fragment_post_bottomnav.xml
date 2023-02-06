@@ -83,7 +83,7 @@
         <EditText
             android:id="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -111,7 +111,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question">
 
             <ImageView
-                android:id="@+id/imageView15"
+                android:id="@+id/upload_camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/upload_camera"
@@ -120,23 +120,23 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView16"
+                android:id="@+id/upload_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/upload_video"
+                android:src="@drawable/upload_image"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView15"
+                app:layout_constraintStart_toEndOf="@+id/upload_camera"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/upload_image"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/upload_video"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                app:layout_constraintStart_toEndOf="@+id/upload_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -164,6 +164,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:strokeWidth="1dp" />
+
+        <ImageView
+            android:id="@+id/preview"
+            android:layout_width="225dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="180dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/question" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

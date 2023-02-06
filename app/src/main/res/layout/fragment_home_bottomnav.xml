@@ -193,7 +193,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/question_title" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/like1"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:layout_marginTop="16dp"
@@ -202,15 +202,15 @@
                     app:layout_constraintTop_toBottomOf="@+id/question_body" />
 
                 <TextView
-                    android:id="@+id/numOfLikes"
+                    android:id="@+id/numOfLikes1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="24dp"
-                    android:text="-"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toEndOf="@+id/like1"
                     app:layout_constraintTop_toBottomOf="@+id/question_body" />
 
                 <ImageView
@@ -220,7 +220,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/jawab_icon"
-                    app:layout_constraintStart_toEndOf="@+id/numOfLikes"
+                    app:layout_constraintStart_toEndOf="@+id/numOfLikes1"
                     app:layout_constraintTop_toBottomOf="@+id/question_body" />
 
                 <TextView
@@ -229,7 +229,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="24dp"
-                    android:text="-"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -334,13 +334,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/question_title2" />
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/like2"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/like"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/question_body2" />
+                    app:layout_constraintTop_toBottomOf="@+id/question_body2"
+                    tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/numOfLikes2"
@@ -348,10 +349,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="24dp"
-                    android:text="2"
+                    android:text="1"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                    app:layout_constraintStart_toEndOf="@+id/like2"
                     app:layout_constraintTop_toBottomOf="@+id/question_body2" />
 
                 <ImageView
@@ -475,13 +476,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/question_title3" />
 
                 <ImageView
-                    android:id="@+id/imageView13"
+                    android:id="@+id/like3"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/like"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/question_body3" />
+                    app:layout_constraintTop_toBottomOf="@+id/question_body3"
+                    tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/numOfLikes3"
@@ -492,7 +494,7 @@
                     android:text="5"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintStart_toEndOf="@+id/like3"
                     app:layout_constraintTop_toBottomOf="@+id/question_body3" />
 
                 <ImageView

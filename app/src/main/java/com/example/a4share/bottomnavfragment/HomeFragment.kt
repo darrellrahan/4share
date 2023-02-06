@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -42,8 +44,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager)
         val filter: Spinner = view.findViewById<Spinner>(R.id.filter_spinner)
+        val like1: ImageView = view.findViewById<ImageView>(R.id.like1)
+        val like2: ImageView = view.findViewById<ImageView>(R.id.like2)
+        val like3: ImageView = view.findViewById<ImageView>(R.id.like3)
+        val numOfLikes1Tv: TextView = view.findViewById<TextView>(R.id.numOfLikes1)
+        val numOfLikes2Tv: TextView = view.findViewById<TextView>(R.id.numOfLikes2)
+        val numOfLikes3Tv: TextView = view.findViewById<TextView>(R.id.numOfLikes3)
+        val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager)
 
         viewPager.post {
             viewPager.setCurrentItem(1, true)
@@ -70,7 +78,7 @@ class HomeFragment : Fragment() {
             arrayListOf("Alifah", "Darrell", "Azril"),
             arrayListOf("Dijawab, 23 Jan 2023", "Dijawab, 5 Feb 2023", "Dijawab, 1 Feb 2023"),
             arrayListOf("Cyber Security Mesh adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  ...", "Jadi gini kak, perbedaan antara setTimeOut dan setInterval di JavaScript adalah ... Gacukup lanjut part 2", "Ga relate Kristen 🙏"),
-            arrayListOf(9, 6, 420)
+            arrayListOf(6, 9, 420)
         )
 
         val filters = arrayOf("Pertanyaan Terbaru", "Pertanyaan Populer")
@@ -80,6 +88,55 @@ class HomeFragment : Fragment() {
 
         val indicator = view.findViewById<CircleIndicator3>(R.id.indicator)
         indicator.setViewPager(viewPager)
+
+        var isLiked1: Boolean = false
+        var isLiked2: Boolean = false
+        var isLiked3: Boolean = false
+        var numOfLikes1: Int = 0
+        var numOfLikes2: Int = 1
+        var numOfLikes3: Int = 5
+
+        like1.setOnClickListener {
+            isLiked1 = !isLiked1
+
+            if(isLiked1) {
+                numOfLikes1++
+                like1.setImageResource(R.drawable.liked)
+                numOfLikes1Tv.text = numOfLikes1.toString()
+            } else {
+                numOfLikes1--
+                like1.setImageResource(R.drawable.like)
+                numOfLikes1Tv.text = numOfLikes1.toString()
+            }
+        }
+
+        like2.setOnClickListener {
+            isLiked2 = !isLiked2
+
+            if(isLiked2) {
+                numOfLikes2++
+                like2.setImageResource(R.drawable.liked)
+                numOfLikes2Tv.text = numOfLikes2.toString()
+            } else {
+                numOfLikes2--
+                like2.setImageResource(R.drawable.like)
+                numOfLikes2Tv.text = numOfLikes2.toString()
+            }
+        }
+
+        like3.setOnClickListener {
+            isLiked3 = !isLiked3
+
+            if(isLiked3) {
+                numOfLikes3++
+                like3.setImageResource(R.drawable.liked)
+                numOfLikes3Tv.text = numOfLikes3.toString()
+            } else {
+                numOfLikes3--
+                like3.setImageResource(R.drawable.like)
+                numOfLikes3Tv.text = numOfLikes3.toString()
+            }
+        }
     }
 
     override fun onCreateView(
