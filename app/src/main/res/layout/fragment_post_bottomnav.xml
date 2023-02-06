@@ -165,13 +165,30 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:strokeWidth="1dp" />
 
+        <TextView
+            android:id="@+id/remove_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginBottom="8dp"
+            android:text="X"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/preview"
+            app:layout_constraintEnd_toEndOf="@+id/question"
+            app:layout_constraintStart_toStartOf="@+id/question" />
+
         <ImageView
             android:id="@+id/preview"
             android:layout_width="225dp"
             android:layout_height="200dp"
-            android:layout_marginTop="180dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/question"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/question" />
+            app:layout_constraintTop_toTopOf="@+id/question"
+            app:layout_constraintVertical_bias="0.895" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

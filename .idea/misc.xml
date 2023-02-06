@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/allround_border.xml" value="0.174" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/cream_border.xml" value="0.223" />
+        <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/follow_bg.xml" value="0.174" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/gradient_to_bottom_darkyellow.xml" value="0.223" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/gradient_to_top_yellow.xml" value="0.2075" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/drawable-v24/round_border.xml" value="0.174" />
@@ -37,7 +38,7 @@
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_intro_slider.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_intro_slider1.xml" value="0.264" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_intro_slider2.xml" value="0.264" />
-        <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_post_bottomnav.xml" value="0.4" />
+        <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_post_bottomnav.xml" value="0.264" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/fragment_socials_bottomnav.xml" value="0.264" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/header.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/ACER/Documents/School ish/Kelas 11/Bu Arne/Android/Projects/4Share/app/src/main/res/layout/home.xml" value="0.264" />

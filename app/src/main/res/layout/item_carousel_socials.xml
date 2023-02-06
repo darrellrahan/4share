@@ -20,11 +20,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/follow"
+            android:text="+ Follow"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#d9d9d9"
+            android:textColor="@color/black"
+            android:letterSpacing="0.015"
+            android:textSize="14sp"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

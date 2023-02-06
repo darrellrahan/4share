@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.Image
 import android.os.Build
@@ -88,12 +89,25 @@ class PostFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 101) {
-            var pic: Bitmap? = data?.getParcelableExtra<Bitmap>("data")
-            preview.setImageBitmap(pic)
+            val pic: Bitmap? = data?.getParcelableExtra<Bitmap>("data")
+            preview.setImageBitmap(pic?.let { Bitmap.createScaledBitmap(it, 225, 200, false) })
+
+            remove_preview.visibility = View.VISIBLE
+            remove_preview.setOnClickListener {
+                preview.setImageBitmap(null)
+                remove_preview.visibility = View.GONE
+            }
         }
 
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
-            preview.setImageURI(data?.data)
+            val pic: Bitmap? = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, data?.data)
+            preview.setImageBitmap(pic?.let { Bitmap.createScaledBitmap(it, 225, 200, false) })
+
+            remove_preview.visibility = View.VISIBLE
+            remove_preview.setOnClickListener {
+                preview.setImageBitmap(null)
+                remove_preview.visibility = View.GONE
+            }
         }
     }
 
