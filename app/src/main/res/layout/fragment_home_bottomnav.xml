@@ -29,7 +29,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
-                android:background="@drawable/bottom_border"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="vertical">

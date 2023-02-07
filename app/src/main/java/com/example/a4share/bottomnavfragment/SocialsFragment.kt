@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -13,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.a4share.CarouselHomeAdapter
 import com.example.a4share.CarouselSocialsAdapter
 import com.example.a4share.R
+import kotlinx.android.synthetic.main.fragment_socials_bottomnav.*
 import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
@@ -77,6 +79,10 @@ class AccountFragment : Fragment() {
 
         val indicator = view.findViewById<CircleIndicator3>(R.id.indicator_socials)
         indicator.setViewPager(viewPager)
+
+        val filters = arrayOf("Following", "Followers")
+        val filterAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, filters)
+        filter_social.adapter = filterAdapter
     }
 
     companion object {
