@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -15,6 +18,8 @@ import com.example.a4share.CarouselHomeAdapter
 import com.example.a4share.CarouselSocialsAdapter
 import com.example.a4share.R
 import kotlinx.android.synthetic.main.fragment_socials_bottomnav.*
+import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.social.*
 import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,6 +57,16 @@ class AccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager_socials)
+        val drawerLayout: DrawerLayout = view.findViewById(R.id.drawer_layout)
+        lateinit var toggleSidebar: ActionBarDrawerToggle
+
+        toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggleSidebar)
+        toggleSidebar.syncState()
+
+        open_sidebar.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
 
         viewPager.apply {
             clipChildren = false

@@ -10,12 +10,17 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.a4share.CarouselHomeAdapter
 import com.example.a4share.R
+import kotlinx.android.synthetic.main.fragment_home_bottomnav.*
+import kotlinx.android.synthetic.main.header.*
 import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,6 +57,16 @@ class HomeFragment : Fragment() {
         val numOfLikes2Tv: TextView = view.findViewById<TextView>(R.id.numOfLikes2)
         val numOfLikes3Tv: TextView = view.findViewById<TextView>(R.id.numOfLikes3)
         val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager)
+        val drawerLayout: DrawerLayout = view.findViewById(R.id.drawer_layout)
+        lateinit var toggleSidebar: ActionBarDrawerToggle
+
+        toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggleSidebar)
+        toggleSidebar.syncState()
+
+        open_sidebar.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
 
         viewPager.post {
             viewPager.setCurrentItem(1, true)

@@ -15,12 +15,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.content.PermissionChecker
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.a4share.R
 import kotlinx.android.synthetic.main.fragment_post_bottomnav.*
+import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.post.*
 import java.util.jar.Manifest
 
 // TODO: Rename parameter arguments, choose names that match
@@ -59,6 +64,16 @@ class PostFragment : Fragment() {
 
         val category: Spinner = view.findViewById(R.id.category)
         val uploadPicture: ImageView = view.findViewById(R.id.upload_camera)
+        val drawerLayout: DrawerLayout = view.findViewById(R.id.drawer_layout)
+        lateinit var toggleSidebar: ActionBarDrawerToggle
+
+        toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggleSidebar)
+        toggleSidebar.syncState()
+
+        open_sidebar.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
 
         val categories = arrayOf("PPLG", "TJKT", "DKV", "TOI", "TlITL", "AV")
 

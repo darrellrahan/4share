@@ -2,11 +2,15 @@ package com.example.a4share
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.a4share.bottomnavfragment.AccountFragment
 import com.example.a4share.bottomnavfragment.HomeFragment
 import com.example.a4share.bottomnavfragment.PostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.header.*
 
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
