@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/social"/>
+        layout="@layout/social_layout"/>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/sidebar_view"

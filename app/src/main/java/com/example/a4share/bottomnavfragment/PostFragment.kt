@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -22,10 +23,14 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.content.PermissionChecker
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.a4share.Chat
+import com.example.a4share.Dashboard
+import com.example.a4share.PanduanSidebar
 import com.example.a4share.R
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_post_bottomnav.*
 import kotlinx.android.synthetic.main.header.*
-import kotlinx.android.synthetic.main.post.*
+import kotlinx.android.synthetic.main.post_layout.*
 import java.util.jar.Manifest
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,6 +47,7 @@ class PostFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var toggleSidebar: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +71,8 @@ class PostFragment : Fragment() {
         val category: Spinner = view.findViewById(R.id.category)
         val uploadPicture: ImageView = view.findViewById(R.id.upload_camera)
         val drawerLayout: DrawerLayout = view.findViewById(R.id.drawer_layout)
-        lateinit var toggleSidebar: ActionBarDrawerToggle
+        val sidebar: NavigationView = view.findViewById(R.id.sidebar_view)
+        val sidebarHeader: View = sidebar.getHeaderView(0)
 
         toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggleSidebar)
@@ -73,6 +80,24 @@ class PostFragment : Fragment() {
 
         open_sidebar.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        open_chat.setOnClickListener {
+            startActivity(Intent(requireContext(), Chat::class.java))
+        }
+
+        sidebar.setNavigationItemSelectedListener {
+            if(it.itemId == R.id.ic_panduan) {
+                startActivity(Intent(activity, PanduanSidebar::class.java))
+                activity?.finish()
+            }
+
+            if(it.itemId == R.id.ic_home) {
+                startActivity(Intent(activity, Dashboard::class.java))
+                activity?.finish()
+            }
+
+            true
         }
 
         val categories = arrayOf("PPLG", "TJKT", "DKV", "TOI", "TlITL", "AV")
@@ -124,6 +149,14 @@ class PostFragment : Fragment() {
                 remove_preview.visibility = View.GONE
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggleSidebar.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

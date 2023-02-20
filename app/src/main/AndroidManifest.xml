@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.a4share">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.4Share"
         tools:targetApi="31">
+        <activity
+            android:name=".SingleChat"
+            android:exported="false" />
+        <activity
+            android:name=".Chat"
+            android:exported="false" />
+        <activity
+            android:name=".PanduanSidebar"
+            android:exported="false" />
+        <activity
+            android:name=".AccountSidebar"
+            android:exported="false"
+            android:label="@string/title_activity_account_sidebar"
+            android:theme="@style/Theme.4Share.NoActionBar" />
         <activity
             android:name=".Dashboard"
             android:exported="false" />
@@ -41,7 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
     </application>
 
 </manifest>

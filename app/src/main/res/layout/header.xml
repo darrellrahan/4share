@@ -25,6 +25,7 @@
         android:src="@drawable/logo" />
 
     <ImageView
+        android:id="@+id/open_chat"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center"

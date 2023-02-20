@@ -1,12 +1,15 @@
 package com.example.a4share.bottomnavfragment
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,12 +17,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.a4share.CarouselHomeAdapter
-import com.example.a4share.CarouselSocialsAdapter
-import com.example.a4share.R
+import com.example.a4share.*
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_socials_bottomnav.*
 import kotlinx.android.synthetic.main.header.*
-import kotlinx.android.synthetic.main.social.*
+import kotlinx.android.synthetic.main.social_layout.*
 import me.relex.circleindicator.CircleIndicator3
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,6 +38,7 @@ class AccountFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var toggleSidebar: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +61,8 @@ class AccountFragment : Fragment() {
 
         val viewPager: ViewPager2 = view.findViewById<ViewPager2>(R.id.view_pager_socials)
         val drawerLayout: DrawerLayout = view.findViewById(R.id.drawer_layout)
-        lateinit var toggleSidebar: ActionBarDrawerToggle
+        val sidebar: NavigationView = view.findViewById(R.id.sidebar_view)
+        val sidebarHeader: View = sidebar.getHeaderView(0)
 
         toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggleSidebar)
@@ -66,6 +70,24 @@ class AccountFragment : Fragment() {
 
         open_sidebar.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        open_chat.setOnClickListener {
+            startActivity(Intent(requireContext(), Chat::class.java))
+        }
+
+        sidebar.setNavigationItemSelectedListener {
+            if(it.itemId == R.id.ic_panduan) {
+                startActivity(Intent(activity, PanduanSidebar::class.java))
+                activity?.finish()
+            }
+
+            if(it.itemId == R.id.ic_home) {
+                startActivity(Intent(activity, Dashboard::class.java))
+                activity?.finish()
+            }
+
+            true
         }
 
         viewPager.apply {
@@ -98,6 +120,14 @@ class AccountFragment : Fragment() {
         val filters = arrayOf("Following", "Followers")
         val filterAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, filters)
         filter_social.adapter = filterAdapter
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggleSidebar.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
