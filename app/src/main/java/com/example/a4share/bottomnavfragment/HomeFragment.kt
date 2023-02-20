@@ -62,7 +62,8 @@ class HomeFragment : Fragment() {
         val sidebarHeader: View = sidebar.getHeaderView(0)
 
         sidebarHeader.setOnClickListener {
-            Toast.makeText(requireContext(), "Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(activity, AccountSidebar::class.java))
+            activity?.finish()
         }
 
         toggleSidebar = ActionBarDrawerToggle(requireActivity(), drawerLayout, R.string.open, R.string.close)

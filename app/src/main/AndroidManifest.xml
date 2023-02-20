@@ -28,9 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".AccountSidebar"
-            android:exported="false"
-            android:label="@string/title_activity_account_sidebar"
-            android:theme="@style/Theme.4Share.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".Dashboard"
             android:exported="false" />
